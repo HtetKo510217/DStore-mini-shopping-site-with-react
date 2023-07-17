@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
 import "./NavBar.css"
+import { GlobalContext } from "../../context/GlobalState"
+import { useContext } from "react"
 export default function NavBar() {
+  const {cart} = useContext(GlobalContext)
   return (
     <div className="navbar">
     <Link to="/">
@@ -15,7 +18,7 @@ export default function NavBar() {
         <li>
           &#128722;{" "}
           <span className="card-count" style={{ color: "red" }}>
-            (0)
+            ({cart.length})
           </span>
         </li>
       </Link>
